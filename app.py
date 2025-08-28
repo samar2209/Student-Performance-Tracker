@@ -19,7 +19,7 @@ def create_app():
     with app.app_context():
         db.create_all()
 
-    tracker = StudentTracker()
+    tracker = StudentTracker(db.session)
 
     # -------------------- ROUTES --------------------
 
@@ -102,4 +102,5 @@ if __name__ == '__main__':
     app.run(debug=True)
 else:
     app = create_app()
+
 
