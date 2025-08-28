@@ -3,6 +3,7 @@ services:
     name: student-performance-tracker
     env: python
     plan: free
+    pythonVersion: 3.11
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn "app:create_app()"
     envVars:
@@ -15,3 +16,4 @@ services:
 databases:
   - name: student-performance-db
     plan: free
+
