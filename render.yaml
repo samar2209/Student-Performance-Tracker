@@ -5,7 +5,7 @@ services:
     plan: free
     pythonVersion: 3.11
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn "app:create_app()"
+    startCommand: gunicorn app:app
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -16,4 +16,5 @@ services:
 databases:
   - name: student-performance-db
     plan: free
+
 
