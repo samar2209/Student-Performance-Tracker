@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: student-performance-tracker
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn "app:create_app()"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: student-performance-db
+          property: connectionString
+      - key: SECRET_KEY
+        value: "supersecretkey"
+databases:
+  - name: student-performance-db
+    plan: free

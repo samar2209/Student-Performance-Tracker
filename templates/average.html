@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}Average Grade{% endblock %}
+
+{% block content %}
+<h2>Average Grade for {{ student.name }}</h2>
+<p>Roll Number: {{ student.roll_number }}</p>
+<p>Average: <strong>{{ average }}</strong></p>
+{% endblock %}

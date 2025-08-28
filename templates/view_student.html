@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Student Details{% endblock %}
+
+{% block content %}
+<h2>Details of {{ student.name }} (Roll: {{ student.roll_number }})</h2>
+
+{% if grades %}
+<table>
+    <tr>
+        <th>Subject</th>
+        <th>Grade</th>
+    </tr>
+    {% for grade in grades %}
+    <tr>
+        <td>{{ grade.subject }}</td>
+        <td>{{ grade.grade }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No grades found for this student.</p>
+{% endif %}
+
+<p><a href="{{ url_for('average', roll_number=student.roll_number) }}">View Average</a></p>
+{% endblock %}

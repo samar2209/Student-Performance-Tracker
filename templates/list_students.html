@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Students List{% endblock %}
+
+{% block content %}
+<h2>Students List</h2>
+
+{% if students %}
+<table>
+    <tr>
+        <th>Roll Number</th>
+        <th>Name</th>
+        <th>Details</th>
+    </tr>
+    {% for student in students %}
+    <tr>
+        <td>{{ student.roll_number }}</td>
+        <td>{{ student.name }}</td>
+        <td><a href="{{ url_for('student_details', roll_number=student.roll_number) }}">View</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No students found.</p>
+{% endif %}
+{% endblock %}
